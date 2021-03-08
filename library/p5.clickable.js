@@ -132,6 +132,11 @@ function Clickable() {
 		}
 	}
 
+	this.setImage = function (img) {
+		this.image = img;
+		this.text = "";
+	}
+
 	this.draw = function () {
 		push();
 		fill(this.color);

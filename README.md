@@ -7,9 +7,18 @@
 
 Welcome! This is **p5.clickable**, a [p5.js](http://p5js.org) library that lets you create and customize **buttons** and assign event-based behaviours to them. With **p5.clickable** you can create buttons and define what happens when the user *hovers over*, *clicks*, *releases* or *moves* the cursor *outside* of them.
 
+
+
 Can't wait? Check [this **live example**](https://lartu.github.io/projects/p5.clickable/example.html) to see some of the things this library can do. Its source code is available in the [example](example) folder of this repository.
 
 >:warning: **Attention Contributors!** It seems that in one poorly checked pull request some of the newly contributes features were deleted. Sorry! I will add them again in the next release alongside all new features.
+
+## Modifications by Scott Kildall
+There are a few mods for the p5.clickable.js (not the min version):
+
+(1) added setImage() function to set an image. This will also set the text to an empty string, since it is annoying to do this every time.
+
+
 
 ## :telescope: Code Example
 With **p5.clickable** you can get a button up and running with just a few lines of code. For example, to create a plain white button at (20, 20) that when pressed changes color and shows an alert message you do:
