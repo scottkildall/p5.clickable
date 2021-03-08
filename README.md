@@ -18,7 +18,7 @@ There are a few mods for the p5.clickable.js (not the min version):
 
 (1) added setImage() function to set an image. This will also set the text to an empty string, since it is annoying to do this every time.
 
-
+(2) added .id field for a number or string to create unique ids for each button. This way, we can use 1 callback handler for all the buttons, use interaction tables and more.
 
 ## :telescope: Code Example
 With **p5.clickable** you can get a button up and running with just a few lines of code. For example, to create a plain white button at (20, 20) that when pressed changes color and shows an alert message you do:
