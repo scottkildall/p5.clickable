@@ -140,6 +140,10 @@ function Clickable() {
 	}
 
 	this.draw = function () {
+		if( this.visible === false ) {
+			return;
+		}
+
 		push();
 		fill(this.color);
 		stroke(this.stroke);
@@ -165,3 +169,45 @@ function Clickable() {
 
 	cl_clickables.push(this);
 }
+
+// ClickableManager class 
+// call constructor in the sketch.js preload() funciton
+// call setup in the  sketch.js setup() function
+class ClickableManager {
+	// Constrctor: set all member vars to defaults, string array to empty strings
+	constructor(allocatorFilename) {
+		this.clickableArray = [];
+		this.allocatorTable = loadTable(allocatorFilename, 'csv', 'header');
+	}
+
+	// expects as .csv file with the format as outlined in the readme file
+	setup() {
+		// For each row, allocate a clickable object
+		for( let i = 0; i < this.allocatorTable.getRowCount(); i++ ) {
+			this.clickableArray[i] = new Clickable();
+			
+			// if we have an image, we will call setImage() to load that image into that p5.clickable
+			if( this.allocatorTable.getString(i, 'PNGFilename') != "" ) {
+				this.clickableArray[i].setImage(loadImage(this.allocatorTable.getString(i, 'PNGFilename'))); 
+			}
+
+			// supply the remaining fields from the .csv file
+			// IF YOU GET AN ERROR, you probably have the incorrect headers information on the CSV file
+			// especially check the case
+			this.clickableArray[i].id = parseInt(this.allocatorTable.getString(i, 'ID'));
+			this.clickableArray[i].name = parseInt(this.allocatorTable.getString(i, 'Name'));
+			this.clickableArray[i].x = parseInt(this.allocatorTable.getString(i, 'x'));
+			this.clickableArray[i].y = parseInt(this.allocatorTable.getString(i, 'y'));
+			this.clickableArray[i].text = this.allocatorTable.getString(i, 'Text')
+		}
+	
+		return this.clickableArray;
+	}
+
+	// draw all clickables (visible now in the draw function)
+	draw() {
+		for( let i = 0; i < this.clickableArray.length; i++ ) {
+			this.clickableArray[i].draw();
+		}
+	}
+ }

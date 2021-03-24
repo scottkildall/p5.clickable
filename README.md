@@ -16,11 +16,43 @@ Can't wait? Check [this **live example**](https://lartu.github.io/projects/p5.cl
 ## Modifications by Scott Kildall
 There are a few mods for the p5.clickable.js (not the min version):
 
+### To the clickable class itself
 (1) added setImage() function to set an image. This will also set the text to an empty string, since it is annoying to do this every time.
 
 (2) added .id field for a number to create unique ids for each button. This way, we can use 1 callback handler for all the buttons, use interaction tables and more.
 
 (3) added .name field for a string to create unique ids for each button. This way, we can use 1 callback handler for all the buttons, use interaction tables and more.
+
+(4) added a .visible field to the class which, if false, will not draw. This enables is to have a single draw function for an array of clickable objects, which gets very convenient
+
+### ClickableManager
+This is a class that I created that will do two things:
+(1) Allocate and initialize an array of clickable objects from a .csv file. The CSV file contains various information so that we can load PNGs, text, assign ids, x, y position and other information automatically, so that this isn't all hard-coded
+
+(2) Draw() function which will draw all the clickable objects, except the ones that are not visible.
+
+
+
+#### CSV file format for ClickableManager class
+Is a CSV file with the following header information (this is case-sensititve)
+
+ID: a number for the id field. I usually start at 0, then 1, 2, etc. This way, the ID num matches the index number
+
+Name: a human-readable name for the clickable object (optional)
+
+PNGFilename: a string indicating the pathname of a PNG file, e.g. "assets/cat.png". Optional: if left blank, it will not load that as a PNG button. Otherwise, it will make a PNG button
+
+Text: the text name for the button. (optional)
+
+x: x location of the PNG file
+
+y: y locaiton of the PNG file
+
+Future fields: 
+visible: haven't tested or implmented this yet...
+width, height, color...
+
+Developing a better example for this now
 
 ## :telescope: Code Example
 With **p5.clickable** you can get a button up and running with just a few lines of code. For example, to create a plain white button at (20, 20) that when pressed changes color and shows an alert message you do:
