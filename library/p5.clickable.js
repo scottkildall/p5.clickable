@@ -56,7 +56,8 @@ function getTextBounds(m, font, size) {
 
 //Button Class
 function Clickable() {
-	this.id = 0;		// unique id number or string for the clickable 
+	this.id = 0;		// unique id number
+	this.name = "";		// string name for the clickable 
 	this.x = 0;			//X position of the clickable
 	this.y = 0;			//Y position of the clickable
 	this.width = 100;		//Width of the clickable
