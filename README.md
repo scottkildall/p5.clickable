@@ -25,6 +25,8 @@ There are a few mods for the p5.clickable.js (not the min version):
 
 (4) added a .visible field to the class which, if false, will not draw. This enables is to have a single draw function for an array of clickable objects, which gets very convenient
 
+(5) Auto-reszing of images in drawImage() with a flag variable and checks for image width and height == 1
+
 ### ClickableManager
 This is a class that I created that will do two things:
 (1) Allocate and initialize an array of clickable objects from a .csv file. The CSV file contains various information so that we can load PNGs, text, assign ids, x, y position and other information automatically, so that this isn't all hard-coded
