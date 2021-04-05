@@ -33,7 +33,7 @@ This is a class that I created that will do two things:
 
 (2) Draw() function which will draw all the clickable objects, except the ones that are not visible.
 
-
+(3) width, height and color fields (below) are now optional
 
 #### CSV file format for ClickableManager class
 Is a CSV file with the following header information (this is case-sensititve)
@@ -51,8 +51,10 @@ x: x location of the PNG file
 y: y locaiton of the PNG file
 
 Future fields: 
-visible: haven't tested or implmented this yet...
-width, height, color...
+width: [OPTIONAL], width of the Clickable
+height: [OPTIONAL], height of the Clickable
+color: [OPTIONAL], color of the Clickable
+
 
 Developing a better example for this now
 
